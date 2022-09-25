@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes: 
+      - mysql:/var/lib/mysql
+      - ./migration:/migration
+
+volumes:
+  mysql:
